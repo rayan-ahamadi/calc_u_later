@@ -24,11 +24,22 @@ public class calc_u_later extends Application {
         launch(args);
     }
 
+    Stage primaryStage;
+    Scene sceneBasique;
+
+
     @Override
     public void start(Stage primaryStage) {
+        createSceneBasic();
+
+        primaryStage.setTitle("Calculatrice");
+        primaryStage.setScene(sceneBasique);
+        primaryStage.show();
+    }
+
+
+    private void createSceneBasic(){
         GridPane root = new GridPane();
-
-
 
         /*Mode button*/
 
@@ -46,6 +57,11 @@ public class calc_u_later extends Application {
             modesBtn[i] = new Button();
             modesBtn[i].setText(modes[i]);
             modesBtn[i].setPrefSize(60,30);
+
+            if (i==1) {
+                modesBtn[i].setOnAction(e -> primaryStage.setScene(sceneBasique));
+            }
+
             modeButton.add(modesBtn[i],modeColumn,0);
             modeColumn++;
         }
@@ -109,15 +125,13 @@ public class calc_u_later extends Application {
         root.add(textfield,0,1);
         root.add(button,0,2);
         root.add(clear,0,3);
-        Scene scene = new Scene(root);
+        sceneBasique = new Scene(root,240,300);
 
-        primaryStage.setScene(scene);
-        primaryStage.setWidth(250);
-        primaryStage.setHeight(350);
-        primaryStage.setTitle("Calculatrice");
 
-        primaryStage.show();
+
     }
+
+
 
     private void appendText(TextField textField, String text) {
         textField.appendText(text);
