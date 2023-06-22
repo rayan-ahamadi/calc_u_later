@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
+import javax.script.*;
 
 import java.util.Arrays;
 
@@ -128,7 +129,8 @@ public class calc_u_later extends Application {
         if (!expression.isEmpty()) {
             try {
                 ScriptEngineManager manager = new ScriptEngineManager();
-                ScriptEngine engine = manager.getEngineByName("js");
+                ScriptEngine engine = manager.getEngineByName("JavaScript");
+                System.out.println(engine);
                 Object result = engine.eval(expression);
                 textField.setText(result.toString());
             } catch (ScriptException e) {
