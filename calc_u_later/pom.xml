@@ -24,7 +24,15 @@
       <artifactId>javafx-fxml</artifactId>
       <version>20</version>
     </dependency>
-                                    
+
+    <!-- https://mvnrepository.com/artifact/javax.script/script-api -->
+    <dependency>
+      <groupId>javax.script</groupId>
+      <artifactId>js-engine</artifactId>
+      <version>1.0</version>
+    </dependency>
+
+
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
